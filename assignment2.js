@@ -85,8 +85,13 @@ console.log(arr.some(word => word.length > 6));
 */
 
 // EVERY //
-Array.prototype.myEvery = function() {
-
+Array.prototype.myEvery = function(callbackFn) {
+	for(let i = 0; i < this.length; i++) {
+		if(callbackFn(this[i], i, this) == false) {
+			return false;
+		}
+	}
+	return true;
 };
 
 // REDUCE //

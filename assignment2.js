@@ -26,14 +26,13 @@ Array.prototype.myMap = function(callbackFn) {
 			bob.length++;
 		}
 		else {
-			let temp = callbackFn(this[i], i, this);
-			bob.push(temp);
+			bob.push(callbackFn(this[i],i, this));
 		};
 	};
 	return bob;
 };
 
-
+/*
 const arr = [1,2,,4];
 let why = [];
 why = arr.myMap(x => x + 1);
@@ -42,6 +41,7 @@ console.log(why);
 why = arr.map(x => x + 1);
 console.log("Inbuilt");
 console.log(why);
+*/
 
 
 

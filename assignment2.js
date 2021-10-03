@@ -9,16 +9,36 @@ Array.prototype.myEach = function(callbackFn) {
 	};
 };
 
+/*
+const arr = [1,2,,7];
+console.log("myEach: ")
+arr.myEach( (x, i, arr) => console.log(x, i, arr) );
+
+console.log("forEach: ")
+arr.forEach( (x, i, arr) => console.log(x, i, arr) );
+*/
+
 // MAP //
 Array.prototype.myMap = function(callbackFn) {
 	const bob = [];
 	for(let i = 0; i < this.length; i++) {
-		if(callbackFn(this[i], i, this) == true) {
-			bob.push(this[i]);
-		};
+		let temp = callbackFn(this[i], i, this);
+		bob.push(temp);
 	};
 	return bob;
 };
+
+
+const arr = [1,2,,4];
+let why = [];
+why = arr.myMap(x => x + 1);
+console.log("Mine");
+console.log(why);
+why = arr.map(x => x + 1);
+console.log("Inbuilt");
+console.log(why);
+
+
 
 // FILTER //
 Array.prototype.myFilter = function() {

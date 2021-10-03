@@ -104,46 +104,46 @@ console.log(arr.every(even));
 
 // REDUCE //
 Array.prototype.myReduce = function(callbackFn, start) {
-	if((this.length == 0) && (start === undefined)) {
+	let isEmpty = true;
+	for(let q = 0; q < this.length; q++) {
+		if(this[q] != undefined) {
+			isEmpty = false;
+		}
+	}
+	if((isEmpty == true) && (start === undefined)) {
 		throw TypeError("Reduce of empty array with no initial value");
 	}
 	let temp;
 	let i = 0;
 	
 	if(start != undefined) {
+		temp = start;
+		for(; (i < this.length) && (temp === undefined); i++) {
+			if(this[i] != undefined) {
+				temp = this[i];
+				temp = callbackFn(start, temp);
+			};
+		};
+	}
+	else {
 		for(; (i < this.length) && (temp === undefined); i++) {
 			if(this[i] != undefined) {
 				temp = this[i];
 			};
 		};
-		temp = callbackFn(start, temp);
-	}
-	else {
-		temp = this[0];
 	};
 	for(; i < this.length; i++) {
 		if(this[i] === undefined) continue;
 		temp = callbackFn(temp, this[i]);
-	}
+	};
 	return temp;
 };
 
-const array1 = [1,3,4,];
-const reducer = (previousValue, currentValue) => previousValue + currentValue;
-// 1 + 2 + 3 + 4
-console.log(array1.reduce(reducer, 5));
-console.log(array1.myReduce(reducer, 5));
-// expected output: 10
-// 5 + 1 + 2 + 3 + 4
-// expected output: 15
 /*
-console.log("Inbuilt");
+const array1 = [,2,4,,,,,5,];
+const reducer = (previousValue, currentValue) => previousValue + currentValue;
+console.log(array1.myReduce(reducer));
 console.log(array1.reduce(reducer));
-// expected output: 10
-// 5 + 1 + 2 + 3 + 4
-console.log(array1.reduce(reducer, 5));
-// expected output: 15
-console.log("That was weird");
 */
 
 // INCLUDES //

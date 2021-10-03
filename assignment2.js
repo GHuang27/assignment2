@@ -46,9 +46,26 @@ console.log(why);
 
 
 // FILTER //
-Array.prototype.myFilter = function() {
-
+Array.prototype.myFilter = function(callbackFn) {
+	const bob = [];
+	for(let i = 0; i < this.length; i++) {
+		if(callbackFn(this[i], i, this) == true) {
+			bob.push(this[i]);
+		};
+	};
+	return bob;
 };
+
+/*
+const arr = ["spray", "limit", "elite", "exuberant", "destruction", "present"];
+console.log(arr);
+const result = arr.myFilter(word => word.length > 6);
+console.log("Mine");
+console.log(result);
+const result2 = arr.filter(word => word.length > 6);
+console.log("Inbuilt");
+console.log(result2);
+*/
 
 // SOME //
 Array.prototype.mySome = function() {

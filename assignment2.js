@@ -87,12 +87,20 @@ console.log(arr.some(word => word.length > 6));
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
 	for(let i = 0; i < this.length; i++) {
+		if(this[i] === undefined) continue;
 		if(callbackFn(this[i], i, this) == false) {
 			return false;
 		}
 	}
 	return true;
 };
+
+/*
+const arr = [, 2, 2, 4, , 2,];
+const even = (element) => element % 2 === 0;
+console.log(arr.myEvery(even));
+console.log(arr.every(even));	
+*/
 
 // REDUCE //
 Array.prototype.myReduce = function() {

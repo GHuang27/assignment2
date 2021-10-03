@@ -22,8 +22,13 @@ arr.forEach( (x, i, arr) => console.log(x, i, arr) );
 Array.prototype.myMap = function(callbackFn) {
 	const bob = [];
 	for(let i = 0; i < this.length; i++) {
-		let temp = callbackFn(this[i], i, this);
-		bob.push(temp);
+		if(this[i] === undefined) {
+			bob.length++;
+		}
+		else {
+			let temp = callbackFn(this[i], i, this);
+			bob.push(temp);
+		};
 	};
 	return bob;
 };

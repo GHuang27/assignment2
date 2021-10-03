@@ -6,12 +6,18 @@ Array.prototype.myEach = function(callbackFn) {
 		//Element, index
 		//element, index, Array
 		callbackFn(this[i], i, this);
-	}
-}
+	};
+};
 
 // MAP //
-Array.prototype.myMap = function() {
-
+Array.prototype.myMap = function(callbackFn) {
+	const bob = [];
+	for(let i = 0; i < this.length; i++) {
+		if(callbackFn(this[i], i, this) == true) {
+			bob.push(this[i]);
+		};
+	};
+	return bob;
 };
 
 // FILTER //

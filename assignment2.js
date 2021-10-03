@@ -68,8 +68,13 @@ console.log(result2);
 */
 
 // SOME //
-Array.prototype.mySome = function() {
-
+Array.prototype.mySome = function(callbackFn) {
+	for(let i = 0; i < this.length; i++) {
+		if(callbackFn(this[i], i, this) == true) {
+			return true;
+		};
+	};
+	return false;
 };
 
 // EVERY //

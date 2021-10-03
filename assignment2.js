@@ -103,9 +103,48 @@ console.log(arr.every(even));
 */
 
 // REDUCE //
-Array.prototype.myReduce = function() {
-
+Array.prototype.myReduce = function(callbackFn, start) {
+	if((this.length == 0) && (start === undefined)) {
+		throw TypeError("Reduce of empty array with no initial value");
+	}
+	let temp;
+	let i = 0;
+	
+	if(start != undefined) {
+		for(; (i < this.length) && (temp === undefined); i++) {
+			if(this[i] != undefined) {
+				temp = this[i];
+			};
+		};
+		temp = callbackFn(start, temp);
+	}
+	else {
+		temp = this[0];
+	};
+	for(; i < this.length; i++) {
+		if(this[i] === undefined) continue;
+		temp = callbackFn(temp, this[i]);
+	}
+	return temp;
 };
+
+const array1 = [1,3,4,];
+const reducer = (previousValue, currentValue) => previousValue + currentValue;
+// 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer, 5));
+console.log(array1.myReduce(reducer, 5));
+// expected output: 10
+// 5 + 1 + 2 + 3 + 4
+// expected output: 15
+/*
+console.log("Inbuilt");
+console.log(array1.reduce(reducer));
+// expected output: 10
+// 5 + 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer, 5));
+// expected output: 15
+console.log("That was weird");
+*/
 
 // INCLUDES //
 Array.prototype.myIncludes = function() {

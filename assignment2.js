@@ -168,9 +168,17 @@ Array.prototype.myIncludes = function(item, start) {
 			};
 			return false;
 		};
-		
 	};
 };
+
+let arr = ['Bob', '2', '3'];
+console.log("Inbuilt");
+console.log(arr.includes('Bob'));
+console.log(arr.includes('Bob',3));
+console.log("Mine");
+console.log(arr.myIncludes('Bob'));
+console.log(arr.myIncludes('Bob',3));
+
 
 // INDEXOF //
 Array.prototype.myIndexOf = function() {

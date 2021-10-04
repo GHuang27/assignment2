@@ -9,14 +9,17 @@ Array.prototype.myEach = function(callbackFn) {
 	};
 };
 
-/*
-const arr = [1,2,,7];
-console.log("myEach: ")
-arr.myEach( (x, i, arr) => console.log(x, i, arr) );
-
-console.log("forEach: ")
-arr.forEach( (x, i, arr) => console.log(x, i, arr) );
-*/
+// PUSH //
+Array.prototype.myPush = function (...args) {
+	let arg_i = 0;
+	let length = this.length;
+	//last element of 'this' is at length - 1
+	for(let i = length; i < length + args.length; i++) {
+		this[i] = args[arg_i];
+		arg_i++;
+	}
+	return this.length;
+}
 
 // MAP //
 Array.prototype.myMap = function(callbackFn) {
@@ -31,19 +34,6 @@ Array.prototype.myMap = function(callbackFn) {
 	};
 	return bob;
 };
-
-/*
-const arr = [1,2,,4];
-let why = [];
-why = arr.myMap(x => x + 1);
-console.log("Mine");
-console.log(why);
-why = arr.map(x => x + 1);
-console.log("Inbuilt");
-console.log(why);
-*/
-
-
 
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
@@ -231,18 +221,6 @@ console.log(arr.myIndexOf(9, 2));  // 2
 console.log(arr.myIndexOf(2, -1)); // -1
 console.log(arr.myIndexOf(2, -44)); // 0
 */
-
-// PUSH //
-Array.prototype.myPush = function (...args) {
-	let arg_i = 0;
-	let length = this.length;
-	//last element of 'this' is at length - 1
-	for(let i = length; i < length + args.length; i++) {
-		this[i] = args[arg_i];
-		arg_i++;
-	}
-	return this.length;
-}
 
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function(item, start) {

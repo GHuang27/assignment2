@@ -315,6 +315,17 @@ console.log(Object.grabKeys(anObj)); // console: ['2', '7', '100']
 */
 
 // VALUES //
-Object.grabValues = function() {
-
+Object.grabValues = function(item) {
+	let values = [];
+	for(let prop in item) {
+		values.myPush(item[prop]);
+	};
+	return values;
 };
+
+const object1 = {
+  a: 'somestring',
+  b: 42,
+  c: false
+};
+console.log(Object.values(object1));

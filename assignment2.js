@@ -245,9 +245,53 @@ Array.prototype.myPush = function (...args) {
 }
 
 // LASTINDEXOF //
-Array.prototype.myLastIndexOf = function() {
-
+Array.prototype.myLastIndexOf = function(item, start) {
+	if((start === undefined) || (start >= this.length)) {
+		for(let i = this.length -1; i >= 0; i--) {
+			if(this[i] === item) {
+				return i;
+			};
+		};
+		return -1;
+	}
+	else if(start < 0) {
+		start = this.length + start;
+		if(start < 0) {
+			return -1;
+		};
+		for(; start >= 0; start--) {
+			if(this[start] === item) {
+				return start;
+			};
+		};
+		return -1;
+	}
+	else {
+		for(; start >= 0; start--) {
+			if(this[start] === item) {
+				return start;
+			};
+		};
+		return -1;
+	};
 };
+
+/*
+let numbers = [2, 5, 9, 2];
+console.log(numbers.lastIndexOf(2));     // 3
+console.log(numbers.lastIndexOf(7));     // -1
+console.log(numbers.lastIndexOf(2, 30));  // 3
+console.log(numbers.lastIndexOf(2, 2));  // 0
+console.log(numbers.lastIndexOf(2, -47)); // 0
+console.log(numbers.lastIndexOf(2, -1)); // 3
+console.log("Mine");
+console.log(numbers.myLastIndexOf(2));     // 3
+console.log(numbers.myLastIndexOf(7));     // -1
+console.log(numbers.myLastIndexOf(2, 30));  // 3
+console.log(numbers.myLastIndexOf(2, 2));  // 0
+console.log(numbers.myLastIndexOf(2, -47)); // 0
+console.log(numbers.myLastIndexOf(2, -1)); // 3
+*/
 
 // KEYS //
 Object.grabKeys = function() {

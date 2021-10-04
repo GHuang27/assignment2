@@ -26,7 +26,7 @@ Array.prototype.myMap = function(callbackFn) {
 			bob.length++;
 		}
 		else {
-			bob.push(callbackFn(this[i],i, this));
+			bob.myPush(callbackFn(this[i],i, this));
 		};
 	};
 	return bob;
@@ -50,7 +50,7 @@ Array.prototype.myFilter = function(callbackFn) {
 	const bob = [];
 	for(let i = 0; i < this.length; i++) {
 		if(callbackFn(this[i], i, this) == true) {
-			bob.push(this[i]);
+			bob.myPush(this[i]);
 		};
 	};
 	return bob;
@@ -294,9 +294,25 @@ console.log(numbers.myLastIndexOf(2, -1)); // 3
 */
 
 // KEYS //
-Object.grabKeys = function() {
-
+Object.grabKeys = function(item) {
+	let keys = [];
+	for(let prop in item) {
+		keys.myPush(prop);
+	};
+	return keys;
 };
+
+/*
+const obj = { 0: 'a', 1: 'b', 2: 'c' };
+const anObj = { 100: 'a', 2: 'b', 7: 'c' };
+console.log(Object.keys(obj)); // console: ['0', '1', '2']
+console.log(Object.keys(anObj)); // console: ['2', '7', '100']
+console.log(Object.keys('foo'));
+console.log("Mine");
+console.log(Object.grabKeys('foo'));
+console.log(Object.grabKeys(obj)); // console: ['0', '1', '2']
+console.log(Object.grabKeys(anObj)); // console: ['2', '7', '100']
+*/
 
 // VALUES //
 Object.grabValues = function() {

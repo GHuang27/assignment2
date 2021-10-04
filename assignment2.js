@@ -129,16 +129,6 @@ Array.prototype.myIncludes = function(item, start) {
 	};
 };
 
-/*
-let arr = ['Bob', '2', '3'];
-console.log("Inbuilt");
-console.log(arr.includes('Bob'));
-console.log(arr.includes('Bob',3));
-console.log("Mine");
-console.log(arr.myIncludes('Bob'));
-console.log(arr.myIncludes('Bob',3));
-*/
-
 // INDEXOF //
 Array.prototype.myIndexOf = function(item, start) {
 	if(start === undefined) {
@@ -174,22 +164,6 @@ Array.prototype.myIndexOf = function(item, start) {
 	};
 };
 
-/*
-let arr = [2, 9, 9];
-console.log("Inbuilt");
-console.log(arr.indexOf(2));     // 0
-console.log(arr.indexOf(7));     // -1
-console.log(arr.indexOf(9, 2));  // 2
-console.log(arr.indexOf(2, -1)); // -1
-console.log(arr.indexOf(2, -44)); // 0
-console.log("Mine");
-console.log(arr.myIndexOf(2));     // 0
-console.log(arr.myIndexOf(7));     // -1
-console.log(arr.myIndexOf(9, 2));  // 2
-console.log(arr.myIndexOf(2, -1)); // -1
-console.log(arr.myIndexOf(2, -44)); // 0
-*/
-
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function(item, start) {
 	if((start === undefined) || (start >= this.length)) {
@@ -221,23 +195,6 @@ Array.prototype.myLastIndexOf = function(item, start) {
 		return -1;
 	};
 };
-
-/*
-let numbers = [2, 5, 9, 2];
-console.log(numbers.lastIndexOf(2));     // 3
-console.log(numbers.lastIndexOf(7));     // -1
-console.log(numbers.lastIndexOf(2, 30));  // 3
-console.log(numbers.lastIndexOf(2, 2));  // 0
-console.log(numbers.lastIndexOf(2, -47)); // 0
-console.log(numbers.lastIndexOf(2, -1)); // 3
-console.log("Mine");
-console.log(numbers.myLastIndexOf(2));     // 3
-console.log(numbers.myLastIndexOf(7));     // -1
-console.log(numbers.myLastIndexOf(2, 30));  // 3
-console.log(numbers.myLastIndexOf(2, 2));  // 0
-console.log(numbers.myLastIndexOf(2, -47)); // 0
-console.log(numbers.myLastIndexOf(2, -1)); // 3
-*/
 
 // KEYS //
 Object.grabKeys = function(item) {

@@ -315,6 +315,30 @@ console.log(Object.grabKeys(anObj)); // console: ['2', '7', '100']
 */
 
 // VALUES //
-Object.grabValues = function() {
-
+Object.grabValues = function(item) {
+	let values = [];
+	for(let prop in item) {
+		values.myPush(item[prop]);
+	};
+	return values;
 };
+
+/*
+const obj = { foo: 'bar', baz: 42 };
+console.log(Object.values(obj)); // ['bar', 42]
+const arrayLikeObj1 = { 0: 'a', 1: 'b', 2: 'c' };
+console.log(Object.values(arrayLikeObj1 )); // ['a', 'b', 'c']
+const arrayLikeObj2 = { 100: 'a', 2: 'b', 7: 'c' };
+console.log(Object.values(arrayLikeObj2 )); // ['b', 'c', 'a']
+const my_obj = Object.create({}, { getFoo: { value: function() { return this.foo; } } });
+my_obj.foo = 'bar';
+console.log(Object.values(my_obj)); // ['bar']
+console.log(Object.values('foo')); // ['f', 'o', 'o']
+console.log("Mine");
+console.log(Object.grabValues(obj)); // ['bar', 42]
+console.log(Object.grabValues(arrayLikeObj1 )); // ['a', 'b', 'c']
+console.log(Object.grabValues(arrayLikeObj2 )); // ['b', 'c', 'a']
+my_obj.foo = 'bar';
+console.log(Object.grabValues(my_obj)); // ['bar']
+console.log(Object.grabValues('foo')); // ['f', 'o', 'o']
+*/

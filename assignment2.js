@@ -9,14 +9,17 @@ Array.prototype.myEach = function(callbackFn) {
 	};
 };
 
-/*
-const arr = [1,2,,7];
-console.log("myEach: ")
-arr.myEach( (x, i, arr) => console.log(x, i, arr) );
-
-console.log("forEach: ")
-arr.forEach( (x, i, arr) => console.log(x, i, arr) );
-*/
+// PUSH //
+Array.prototype.myPush = function (...args) {
+	let arg_i = 0;
+	let length = this.length;
+	//last element of 'this' is at length - 1
+	for(let i = length; i < length + args.length; i++) {
+		this[i] = args[arg_i];
+		arg_i++;
+	}
+	return this.length;
+}
 
 // MAP //
 Array.prototype.myMap = function(callbackFn) {
@@ -32,19 +35,6 @@ Array.prototype.myMap = function(callbackFn) {
 	return bob;
 };
 
-/*
-const arr = [1,2,,4];
-let why = [];
-why = arr.myMap(x => x + 1);
-console.log("Mine");
-console.log(why);
-why = arr.map(x => x + 1);
-console.log("Inbuilt");
-console.log(why);
-*/
-
-
-
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
 	const bob = [];
@@ -56,17 +46,6 @@ Array.prototype.myFilter = function(callbackFn) {
 	return bob;
 };
 
-/*
-const arr = ["spray", "limit", "elite", "exuberant", "destruction", "present"];
-console.log(arr);
-const result = arr.myFilter(word => word.length > 6);
-console.log("Mine");
-console.log(result);
-const result2 = arr.filter(word => word.length > 6);
-console.log("Inbuilt");
-console.log(result2);
-*/
-
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
 	for(let i = 0; i < this.length; i++) {
@@ -76,13 +55,6 @@ Array.prototype.mySome = function(callbackFn) {
 	};
 	return false;
 };
-
-/*
-const arr = ["spray", "limit", "elite", "exuberant", "destruction", "present", , , , , ];
-const even = (element) => element % 2 === 0;
-console.log(arr.mySome(word => word.length > 6));
-console.log(arr.some(word => word.length > 6));
-*/
 
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
@@ -94,13 +66,6 @@ Array.prototype.myEvery = function(callbackFn) {
 	}
 	return true;
 };
-
-/*
-const arr = [, 2, 2, 4, , 2,];
-const even = (element) => element % 2 === 0;
-console.log(arr.myEvery(even));
-console.log(arr.every(even));	
-*/
 
 // REDUCE //
 Array.prototype.myReduce = function(callbackFn, start) {
@@ -139,13 +104,6 @@ Array.prototype.myReduce = function(callbackFn, start) {
 	return temp;
 };
 
-/*
-const array1 = [,2,4,,,,,5,];
-const reducer = (previousValue, currentValue) => previousValue + currentValue;
-console.log(array1.myReduce(reducer));
-console.log(array1.reduce(reducer));
-*/
-
 // INCLUDES //
 Array.prototype.myIncludes = function(item, start) {
 	if((start === undefined) || (start <= 0)) {
@@ -170,16 +128,6 @@ Array.prototype.myIncludes = function(item, start) {
 		};
 	};
 };
-
-/*
-let arr = ['Bob', '2', '3'];
-console.log("Inbuilt");
-console.log(arr.includes('Bob'));
-console.log(arr.includes('Bob',3));
-console.log("Mine");
-console.log(arr.myIncludes('Bob'));
-console.log(arr.myIncludes('Bob',3));
-*/
 
 // INDEXOF //
 Array.prototype.myIndexOf = function(item, start) {
@@ -216,34 +164,6 @@ Array.prototype.myIndexOf = function(item, start) {
 	};
 };
 
-/*
-let arr = [2, 9, 9];
-console.log("Inbuilt");
-console.log(arr.indexOf(2));     // 0
-console.log(arr.indexOf(7));     // -1
-console.log(arr.indexOf(9, 2));  // 2
-console.log(arr.indexOf(2, -1)); // -1
-console.log(arr.indexOf(2, -44)); // 0
-console.log("Mine");
-console.log(arr.myIndexOf(2));     // 0
-console.log(arr.myIndexOf(7));     // -1
-console.log(arr.myIndexOf(9, 2));  // 2
-console.log(arr.myIndexOf(2, -1)); // -1
-console.log(arr.myIndexOf(2, -44)); // 0
-*/
-
-// PUSH //
-Array.prototype.myPush = function (...args) {
-	let arg_i = 0;
-	let length = this.length;
-	//last element of 'this' is at length - 1
-	for(let i = length; i < length + args.length; i++) {
-		this[i] = args[arg_i];
-		arg_i++;
-	}
-	return this.length;
-}
-
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function(item, start) {
 	if((start === undefined) || (start >= this.length)) {
@@ -276,23 +196,6 @@ Array.prototype.myLastIndexOf = function(item, start) {
 	};
 };
 
-/*
-let numbers = [2, 5, 9, 2];
-console.log(numbers.lastIndexOf(2));     // 3
-console.log(numbers.lastIndexOf(7));     // -1
-console.log(numbers.lastIndexOf(2, 30));  // 3
-console.log(numbers.lastIndexOf(2, 2));  // 0
-console.log(numbers.lastIndexOf(2, -47)); // 0
-console.log(numbers.lastIndexOf(2, -1)); // 3
-console.log("Mine");
-console.log(numbers.myLastIndexOf(2));     // 3
-console.log(numbers.myLastIndexOf(7));     // -1
-console.log(numbers.myLastIndexOf(2, 30));  // 3
-console.log(numbers.myLastIndexOf(2, 2));  // 0
-console.log(numbers.myLastIndexOf(2, -47)); // 0
-console.log(numbers.myLastIndexOf(2, -1)); // 3
-*/
-
 // KEYS //
 Object.grabKeys = function(item) {
 	let keys = [];
@@ -302,18 +205,6 @@ Object.grabKeys = function(item) {
 	return keys;
 };
 
-/*
-const obj = { 0: 'a', 1: 'b', 2: 'c' };
-const anObj = { 100: 'a', 2: 'b', 7: 'c' };
-console.log(Object.keys(obj)); // console: ['0', '1', '2']
-console.log(Object.keys(anObj)); // console: ['2', '7', '100']
-console.log(Object.keys('foo'));
-console.log("Mine");
-console.log(Object.grabKeys('foo'));
-console.log(Object.grabKeys(obj)); // console: ['0', '1', '2']
-console.log(Object.grabKeys(anObj)); // console: ['2', '7', '100']
-*/
-
 // VALUES //
 Object.grabValues = function(item) {
 	let values = [];
@@ -322,23 +213,3 @@ Object.grabValues = function(item) {
 	};
 	return values;
 };
-
-/*
-const obj = { foo: 'bar', baz: 42 };
-console.log(Object.values(obj)); // ['bar', 42]
-const arrayLikeObj1 = { 0: 'a', 1: 'b', 2: 'c' };
-console.log(Object.values(arrayLikeObj1 )); // ['a', 'b', 'c']
-const arrayLikeObj2 = { 100: 'a', 2: 'b', 7: 'c' };
-console.log(Object.values(arrayLikeObj2 )); // ['b', 'c', 'a']
-const my_obj = Object.create({}, { getFoo: { value: function() { return this.foo; } } });
-my_obj.foo = 'bar';
-console.log(Object.values(my_obj)); // ['bar']
-console.log(Object.values('foo')); // ['f', 'o', 'o']
-console.log("Mine");
-console.log(Object.grabValues(obj)); // ['bar', 42]
-console.log(Object.grabValues(arrayLikeObj1 )); // ['a', 'b', 'c']
-console.log(Object.grabValues(arrayLikeObj2 )); // ['b', 'c', 'a']
-my_obj.foo = 'bar';
-console.log(Object.grabValues(my_obj)); // ['bar']
-console.log(Object.grabValues('foo')); // ['f', 'o', 'o']
-*/

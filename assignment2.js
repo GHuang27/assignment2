@@ -182,9 +182,45 @@ console.log(arr.myIncludes('Bob',3));
 */
 
 // INDEXOF //
-Array.prototype.myIndexOf = function() {
-
+Array.prototype.myIndexOf = function(item, start) {
+	if(start >= this.length) {
+		return -1;
+	}
+	else if(start === undefined) {
+		for(let i = 0; i < this.length; i++) {
+			if(this[i] === item) {
+				return i;
+			};
+		}
+		return -1;
+	}
+	else if(start < 0) {
+		start = this.length - start;
+		if(start < 0) {
+			start = 0;
+		};
+		for(; start < this.length; start++) {
+			if(this[start] === item) {
+				return i;
+			};
+		};
+		return -1;
+	}
 };
+
+let arr = [2, 9, 9];
+console.log("Inbuilt");
+console.log(array.indexOf(2));     // 0
+console.log(array.indexOf(7));     // -1
+console.log(array.indexOf(9, 2));  // 2
+console.log(array.indexOf(2, -1)); // -1
+console.log(array.indexOf(2, -3)); // 0
+console.log("Mine");
+console.log(array.myIndexOf(2));     // 0
+console.log(array.myIndexOf(7));     // -1
+console.log(array.myIndexOf(9, 2));  // 2
+console.log(array.myIndexOf(2, -1)); // -1
+console.log(array.myIndexOf(2, -3)); // 0
 
 // PUSH //
 Array.prototype.myPush = function (...args) {

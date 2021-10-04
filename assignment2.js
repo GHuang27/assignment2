@@ -67,13 +67,6 @@ Array.prototype.myEvery = function(callbackFn) {
 	return true;
 };
 
-/*
-const arr = [, 2, 2, 4, , 2,];
-const even = (element) => element % 2 === 0;
-console.log(arr.myEvery(even));
-console.log(arr.every(even));	
-*/
-
 // REDUCE //
 Array.prototype.myReduce = function(callbackFn, start) {
 	let isEmpty = true;
@@ -110,13 +103,6 @@ Array.prototype.myReduce = function(callbackFn, start) {
 	};
 	return temp;
 };
-
-/*
-const array1 = [,2,4,,,,,5,];
-const reducer = (previousValue, currentValue) => previousValue + currentValue;
-console.log(array1.myReduce(reducer));
-console.log(array1.reduce(reducer));
-*/
 
 // INCLUDES //
 Array.prototype.myIncludes = function(item, start) {

@@ -147,9 +147,39 @@ console.log(array1.reduce(reducer));
 */
 
 // INCLUDES //
-Array.prototype.myIncludes = function() {
-
+Array.prototype.myIncludes = function(item, start) {
+	if((start === undefined) || (start <= 0)) {
+		for(let i = 0; i < this.length; i++) {
+			if(this[i] === item) {
+				return true;
+			};
+		};
+		return false;
+	}
+	else {
+		if(start >= this.length) {
+			return false;
+		}
+		else {
+			for(; start < this.length; start++) {
+				if(this[start] === item) {
+					return true;
+				};
+			};
+			return false;
+		};
+	};
 };
+
+/*
+let arr = ['Bob', '2', '3'];
+console.log("Inbuilt");
+console.log(arr.includes('Bob'));
+console.log(arr.includes('Bob',3));
+console.log("Mine");
+console.log(arr.myIncludes('Bob'));
+console.log(arr.myIncludes('Bob',3));
+*/
 
 // INDEXOF //
 Array.prototype.myIndexOf = function() {

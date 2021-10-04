@@ -216,19 +216,21 @@ Array.prototype.myIndexOf = function(item, start) {
 	};
 };
 
+/*
 let arr = [2, 9, 9];
 console.log("Inbuilt");
 console.log(arr.indexOf(2));     // 0
 console.log(arr.indexOf(7));     // -1
 console.log(arr.indexOf(9, 2));  // 2
 console.log(arr.indexOf(2, -1)); // -1
-console.log(arr.indexOf(2, -3)); // 0
+console.log(arr.indexOf(2, -44)); // 0
 console.log("Mine");
 console.log(arr.myIndexOf(2));     // 0
 console.log(arr.myIndexOf(7));     // -1
 console.log(arr.myIndexOf(9, 2));  // 2
 console.log(arr.myIndexOf(2, -1)); // -1
-console.log(arr.myIndexOf(2, -3)); // 0
+console.log(arr.myIndexOf(2, -44)); // 0
+*/
 
 // PUSH //
 Array.prototype.myPush = function (...args) {

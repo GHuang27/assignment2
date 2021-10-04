@@ -56,13 +56,6 @@ Array.prototype.mySome = function(callbackFn) {
 	return false;
 };
 
-/*
-const arr = ["spray", "limit", "elite", "exuberant", "destruction", "present", , , , , ];
-const even = (element) => element % 2 === 0;
-console.log(arr.mySome(word => word.length > 6));
-console.log(arr.some(word => word.length > 6));
-*/
-
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
 	for(let i = 0; i < this.length; i++) {

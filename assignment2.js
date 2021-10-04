@@ -147,8 +147,29 @@ console.log(array1.reduce(reducer));
 */
 
 // INCLUDES //
-Array.prototype.myIncludes = function() {
-
+Array.prototype.myIncludes = function(item, start) {
+	if((start === undefined) || (start <= 0)) {
+		for(let i = 0; i < this.length; i++) {
+			if(this[i] === item) {
+				return true;
+			};
+		};
+		return false;
+	}
+	else {
+		if(start >= this.length) {
+			return false;
+		}
+		else {
+			for(; start < this.length; start++) {
+				if(this[start] === item) {
+					return true;
+				};
+			};
+			return false;
+		};
+		
+	};
 };
 
 // INDEXOF //
